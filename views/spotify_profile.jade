@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	h2(class="text-primary") #{message}
+	h3 Create a New Playlist
+	fieldset
+		form(action="/create-playlist" method="get")
+			label(for="playlistName") Playlist Name 
+			input(type="text" placeholder="New Playlist Name" name="playlistName")
+			input(type="hidden" value="#{user}" name="user")
+			button(type="submit") Create Playlist
+	h3 Add Track to Playlist
+	fieldset
+		form(action="/add-song" method="get")
+			label(for="playlist") Playlist 
+			input(type="text" placeholder="Playlist Name" name="playlist")
+			label(for="artist")  Artist 
+			input(type="text" placeholder="Artist Name" name="artist")
+			label(for="track")  Track 
+			input(type="text" placeholder="Track Name" name="track")
+			input(type="hidden" value="#{user}" name="user")
+			button(type="submit") Add Track
